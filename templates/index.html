@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="shortcut icon" href="./static/imgs/fav_icon.svg" type="image/x-icon">
+    <title>Filtering and Edge Detecttion App</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="./static/imgs/pixel.svg" alt="">
+            <span class="material-symbols-outlined toggle-menu">menu</span>
+        </div>
+        <ul class="menu-list">
+            <li><span>Features</span></li>
+            <li class="active"><span>Home</span></li>
+        </ul>
+        <span class="material-icons source-code">code</span>
+        <div class="landing-page">
+            <img src="./static/imgs/hero_background_auto_x2.jpg" class="back-img" alt="">
+            <div class="control">
+                <span class="material-icons">keyboard_arrow_left</span>
+                <span class="material-icons active">keyboard_arrow_right</span>
+            </div>
+            <div class="hero">
+                <p>welcome to PIXEL</p>
+                <h1><span>Do</span> Filtering <span>and</span> Edge Detection</h1>
+                <div class="button"><span>Try Now</span><span class="material-icons">play_arrow</span></div>
+            </div>
+        </div>
+    </div>
+    <div class="description-container">
+        <span class="material-icons close">close</span>
+        <div class="logo">
+            <img src="./static/imgs/pixel.svg" alt="">
+        </div>
+        <div class="description">
+            <h3>Get Accurate Results with <span>Pixel</span></h3>
+            <p>Pixel is a powerful filtering and edge detection app that provides accurate, reliable results. With
+                sophisticated filtering and edge detection capabilities, Pixel makes it easy to enhance images and
+                extract valuable insights from them. Whether you are a professional or an amateur photographer, Pixel is
+                the perfect tool for extracting important information from your photos.</p>
+        </div>
+        <div class="buttons">
+            <div class="btn">Start processing</div>
+            <div class="btn">Make Hybrid Image</div>
+        </div>
+    </div>
+    <div class="process-image-container">
+        <div class="bar">
+            <div class="logo-cancel">
+                <img src="./static/imgs/pixel_title.svg" alt="logo">
+                <span class="material-icons">close</span>
+            </div>
+            <div class="nav-edit-view">
+                <p class="active"><span class="material-symbols-outlined">panorama</span><span>View Image</span></p>
+                <p class="disabled"><span class="material-symbols-outlined">auto_fix</span><span>Process Image</span>
+                </p>
+            </div>
+        </div>
+        <div class="view-image-container">
+            <div class="img-view">
+                <img src="" alt="">
+                <span class="remove material-icons">close</span>
+                <p>
+                    <span class="material-symbols-outlined">hide_image</span>
+                    <span>No Image Selected</span>
+                </p>
+                <span class="material-icons add">add_photo_alternate</span>
+                <input type="file" hidden>
+            </div>
+            <div class="img-edit-panel inactive">
+                <div class="work-space-img">
+                    <img src="" alt="">
+                    <span class="material-symbols-outlined dwn">cloud_download</span>
+                </div>
+                <div class="panel">
+                    <div class="main">
+                        <p value="add_noise">
+                            <!-- <span class="material-symbols-outlined">mic_noise_cancel_high</span> -->
+                            <span class="material-symbols-outlined">blur_on </span>
+                            <span>Add Noise</span>
+                        </p>
+                        <p value="filter_noise">
+                            <!-- <span class="material-symbols-outlined">mic_noise_cancel_off</span> -->
+                            <span class="material-symbols-outlined"> blur_off </span>
+                            <span>Filter Noise</span>
+                        </p>
+                        <p value="edge_detection"><span
+                                class="material-symbols-outlined">sound_detection_glass_break</span><span>Edge
+                                Detection</span></p>
+                        <p value="analytics"><span
+                                class="material-symbols-outlined">analytics</span><span>Analytics</span>
+                        </p>
+                        <p value="equalizer"><span
+                                class="material-symbols-outlined">equalizer</span><span>Equalizer</span></p>
+                        <p value="normalizer"><span
+                                class="material-symbols-outlined">bar_chart</span><span>Normalizer</span></p>
+                        <p value="thresholding"><span
+                                class="material-symbols-outlined">data_thresholding</span><span>Thresholding</span></p>
+                        <p value="convert_to_grayscale"><span
+                                class="material-symbols-outlined">contrast</span><span>Grayscale</span></p>
+                        <p value="filtering"><span
+                                class="material-symbols-outlined">filter_alt</span><span>Filtering</span></p>
+                    </div>
+                    <div class="main-options">
+                        <p class="header"><span class="material-symbols-outlined">tune</span><span>More Options</span>
+                        </p>
+                        <div class="options">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hybrid-imgs-container">
+        <div class="logo-cancel">
+            <img src="./static/imgs/pixel_title.svg" alt="logo">
+            <span class="material-icons">close</span>
+        </div>
+        <div class="up-imgs-container">
+            <div class="img img-1">
+                <div class="img-container">
+                    <img src="" alt="">
+                    <span class="remove material-icons">close</span>
+                    <p>
+                        <span class="material-symbols-outlined">hide_image</span>
+                        <span>No Image Selected</span>
+                    </p>
+                    <span class="material-symbols-outlined add">add_photo_alternate</span>
+                    <input type="file" id="img-one" hidden>
+                </div>
+            </div>
+            <div class="img img-2">
+                <div class="img-container">
+                    <img src="" alt="">
+                    <span class="remove material-icons">close</span>
+                    <p>
+                        <span class="material-symbols-outlined">hide_image</span>
+                        <span>No Image Selected</span>
+                    </p>
+                    <span class="material-symbols-outlined add">add_photo_alternate</span>
+                    <input type="file" id="img-two" hidden>
+                </div>
+            </div>
+            <div class="img rslt-img inactive">
+                <div class="img-container">
+                    <img src="./static/test/hasdwwqdsad_minecraft_622663c9-f5a3-4bf5-8d50-350f0d4a2ef8.png" alt="">
+                    <span class=" material-symbols-outlined dwnld dwn">cloud_download</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="control-btns">
+            <p class="inactive"><span class="material-symbols-outlined">clear_all</span><span>Clear All</span></p>
+            <p class="inactive"><span class="material-symbols-outlined">cell_merge</span><span>Combine</span></p>
+        </div>
+    </div>
+    <div class="loader-rgn">
+        <div class="loader">
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+        </div>
+        <p>Processing...</p>
+    </div>
+    <div class="graphs-menu">
+        <p value="grayscale" class="active"><span>G</span><span>Grayscale</span></p>
+        <p value="redscale"><span>R</span><span>Redscale</span></p>
+        <p value="greenscale"><span>G</span><span>Greenscale</span></p>
+        <p value="bluescale"><span>B</span><span>Bluescale</span></p>
+    </div>
+    <div class="analytics inactive">
+        <span class="material-symbols-outlined cls">close</span>
+        <div class="graph histo inactive">
+            <h1>Histogram</h1>
+            <div class="graph" id="histogram">
+            </div>
+        </div>
+        <div class="graph dis_graph inactive">
+            <h1>Distribution Curve</h1>
+            <div class="graph" id="distrobution_graph"></div>
+        </div>
+        <span class="material-symbols-outlined grph_btn">ssid_chart</span>
+    </div>
+    <div class="cml-eq-diagrams inactive">
+        <span class="material-symbols-outlined cls">close</span>
+        <div class="grf eq inactive">
+            <h1>Equalization Histogram</h1>
+            <div class="grf" id="eq-histogram"></div>
+        </div>
+        <div class="grf cml">
+            <h1>Cumulative Curve</h1>
+            <div class="grf" id="cml-curve"></div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
+    <script src="./static/js/script.js"></script>
+</body>
+
+</html>
