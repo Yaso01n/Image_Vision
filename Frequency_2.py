@@ -86,7 +86,6 @@ def equalization(img, bin):
     img_new = cs[flat]
     img_new = np.reshape(img_new, image.shape)
     img_path = f'./static/download/edit/{randint(0,9999999999999999)}_equalized_img.png'
-    # cv2.imwrite(img_path,img_new )
     imageio.imwrite(img_path, img_new)
     return img_path
 

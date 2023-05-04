@@ -93,7 +93,6 @@ def add_uniform_noise(img_path, type):
     noise_img = noise_img*255
     img_path = f'./static/download/edit/{randint(0,9999999999999999)}_uniform_noise_img.png'
     cv2.imwrite(img_path, noise_img)
-
     return img_path
 
 
@@ -129,6 +128,25 @@ def add_median_filter(img_path, krnl_size):
     return img_path
 
 
+# New Median FIlter
+def apply_median_filter(img_path, window_size):
+    '''This function takes two variable img_path => path of image and window_size => kernel size
+    and return the path of the generated image'''
+    img = cv2.imread(img_path, 0)
+    filtered_img = np.zeros_like(img)
+    padding_size = window_size // 2
+    padded_img = np.pad(img, padding_size, mode='symmetric')
+    for i in range(padding_size, len(img) + padding_size):
+        for j in range(padding_size, len(img[0]) + padding_size):
+            window = padded_img[i-padding_size:i+padding_size +
+                                1, j-padding_size:j+padding_size+1].flatten()
+            median = np.median(window)
+            filtered_img[i-padding_size, j-padding_size] = median
+    img_path = f'./static/download/edit/{randint(0,999999999999999)}_median_filtered_krnl_{window_size}_img.png'
+    cv2.imwrite(img_path, filtered_img)
+    return img_path
+
+
 # Average Filter
 def add_average_filter(img_path, krnl_size):
     '''This function takes two variables as it takes img_path => pathof image and krnl_size => size of kernel
@@ -140,10 +158,28 @@ def add_average_filter(img_path, krnl_size):
     return new_img_path
 
 
+# New Average Filter
+def apply_average_filter(img_path, window_size):
+    '''This function takes two variable img_path => path of image and window_size => kernel size
+    and return the path of the generated image'''
+    img = cv2.imread(img_path, 0)
+    filtered_img = np.zeros_like(img)
+    padding_size = window_size // 2
+    padded_img = np.pad(img, padding_size, mode='symmetric')
+    for i in range(padding_size, len(img) + padding_size):
+        for j in range(padding_size, len(img[0]) + padding_size):
+            window = padded_img[i-padding_size:i+padding_size +
+                                1, j-padding_size:j+padding_size+1].flatten()
+            median = np.sum(window)/window_size**2
+            filtered_img[i-padding_size, j-padding_size] = median
+    img_path = f'./static/download/edit/{randint(0,999999999999999)}_average_filtered_krnl_{window_size}_img.png'
+    cv2.imwrite(img_path, filtered_img)
+    return img_path
+
 # Gaussian Filter
+
+
 def add_gaussian_filter(img_path):
-    '''This function takes a variables as it takes img_path => pathof image
-    returns the path of generated signal'''
     img = cv2.imread(img_path, 0)  # read image in grayscale
     kernel = [[1/16, 2/16, 1/16],
               [2/16, 4/16, 2/16],
@@ -153,7 +189,11 @@ def add_gaussian_filter(img_path):
     return new_img_path
 
 
+'''Edge Detection Filters'''
+
 # Canny Filter
+
+
 def add_canny_filter(img_path, high_threshold, low_threshold):
     img = cv2.imread(img_path, 0)
     gauss = cv2.GaussianBlur(img, (3, 3), 0)
@@ -227,13 +267,10 @@ def add_canny_filter(img_path, high_threshold, low_threshold):
                 except IndexError as e:
                     pass
 
-    img_path = f'./static/download/edit/{randint(0,9999999999999999)}_uniform_noise_img.png'
+    img_path = f'./static/download/edit/{randint(0,9999999999999999)}_canny_img.png'
     cv2.imwrite(img_path, res)
 
     return img_path
-
-
-'''Edge Detection Filters'''
 
 
 # Prewitt Edge Detection Filter
@@ -245,7 +282,7 @@ def add_prewitt_filter(img_path):
     img_y = conv(img, [[-1, -1, -1],
                        [0, 0, 0],
                        [1, 1, 1]])
-    prewitt_img_path = f'./static/download/edit/{randint(0,3333333333655)}_sobel_img.png'
+    prewitt_img_path = f'./static/download/edit/{randint(0,3333333333655)}_prewitt_img.png'
     cv2.imwrite(prewitt_img_path, img_x+img_y)
     return prewitt_img_path
 
@@ -257,7 +294,7 @@ def add_roberts_filter(img_path):
                        [0, -1]])
     img_y = conv(img, [[0, 1],
                        [-1, 0]])
-    roberts_img_path = f'./static/download/edit/{randint(0,3333333333655)}_sobel_img.png'
+    roberts_img_path = f'./static/download/edit/{randint(0,3333333333655)}_roberts_img.png'
     cv2.imwrite(roberts_img_path, img_x+img_y)
     return roberts_img_path
 
@@ -325,3 +362,20 @@ def get_cumulative_curve(img_path):
     cs = np.array(b)
 
     return [list_x, cs.tolist()]
+
+
+# Testing Counting Function unique img
+def search_index(index, img):
+    count = 0
+    for i in range(len(img)):
+        for j in range(len(img[0])):
+            if img[i][j] == index:
+                count += 1
+    return count
+
+
+def unique_img(img):
+    unique_arr = np.zeros(256)
+    for i in range(len(unique_arr)):
+        unique_arr[i] = search_index(i, img)
+    return unique_arr

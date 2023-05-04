@@ -19,20 +19,20 @@ def global_threshold(img):
         for x in range(0, w):
             # threshold the pixel
             pixel = img[y, x]
-            if pixel < 128:  # because pixel value will be between 0-255.
+            if pixel < 127:  # because pixel value will be between 0-255.
                 n_pix = 0
             else:
                 n_pix = pixel
             img_thres[y, x] = n_pix
-    img_path = f'./static/download/edit/{randint(0,9999999999999999)}_local_img.png'
+    img_path = f'./static/download/edit/{randint(0,9999999999999999)}_gloabal_img.png'
     cv2.imwrite(img_path, img_thres)
     return img_path
 
 
 def local_threshold(img):
     img = cv2.imread(img, 0)
-    windowsize_r = 3
-    windowsize_c = 3
+    windowsize_r = 4
+    windowsize_c = 4
     sub_img = []
     for r in range(0, img.shape[0] - windowsize_r, windowsize_r):
         for c in range(0, img.shape[1] - windowsize_c, windowsize_c):
@@ -57,7 +57,7 @@ def local_threshold(img):
         width = iter.shape[1]
         for i in range(0, height):
             for j in range(0, width):
-                if iter[i][j] > (average_list[it]-6):
+                if iter[i][j] > (average_list[it]-2):
                     iter[i][j] = 255
                 else:
                     iter[i][j] = 0
