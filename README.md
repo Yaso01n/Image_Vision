@@ -9,7 +9,7 @@
 #### It is a web page that uses image processing analysis using computer vision theories.
 
 
-## Task(4) feautures
+## Project feautures
 ### Thresholding
 #### 1. Otsu Thresholding
 ##### It is a technique that automatically determines the optimal threshold value for image segmentation based on the variance of pixel intensities in the image.
