@@ -3,7 +3,7 @@
 
 Filtering and Edge Detection
 
-# Cv_Task4_23
+
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/87495750/236040797-9c173952-8ff7-4e60-89e9-75eaa9163c89.jpg"> 
